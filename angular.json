@@ -2,5 +2,42 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "sbe-service-lib": {
+      "root": "projects/sbe-service-lib",
+      "sourceRoot": "projects/sbe-service-lib/src",
+      "projectType": "library",
+      "prefix": "sbe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sbe-service-lib/tsconfig.lib.json",
+            "project": "projects/sbe-service-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sbe-service-lib/src/test.ts",
+            "tsConfig": "projects/sbe-service-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/sbe-service-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sbe-service-lib/tsconfig.lib.json",
+              "projects/sbe-service-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "sbe-service-lib"
 }

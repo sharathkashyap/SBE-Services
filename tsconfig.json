@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "sbe-service-lib": [
+        "dist/sbe-service-lib"
+      ],
+      "sbe-service-lib/*": [
+        "dist/sbe-service-lib/*"
+      ]
+    }
   }
 }
